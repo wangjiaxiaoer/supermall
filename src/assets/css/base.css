@@ -1,0 +1,117 @@
+@import './normalize.css';
+
+
+:root {
+    --color-text: #666;
+    /* 高亮颜色 */
+    --color-high-text: #ff5777;
+    /* 整体背景颜色 */
+    --color-tint: #ff8198;
+    --color-background: #fff;
+    --font-size: 14px;
+    --line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+-webkit-tap-highlight-color
+    这个属性只用于iOS (iPhone和iPad)。
+    当你点击一个链接或者通过Javascript定义的可点击元素的时候，它就会出现一个半透明的灰色背景。
+    想要禁用这个高亮，设置颜色的alpha值为0即可。 
+*/
+body {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+        "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    user-select: none;
+    /* 禁止用户鼠标在页面上选中文字/图片等 */
+    -webkit-tap-highlight-color: transparent;
+    /* webkit是苹果浏览器引擎，tap是点击，highlight是背景高亮，color颜色，颜色用数值调节 */
+    background: var(--color-background);
+    width: 100vw;
+    font-size: 12px;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.line-text {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+/* 字体图标 */
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts/iconfont.eot?t=1595491783092');
+    /* IE9 */
+    src: url('../fonts/iconfont.eot?t=1595491783092#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+        url('../fonts/iconfont.woff?t=1595491783092') format('woff'),
+        url('../fonts/iconfont.ttf?t=1595491783092') format('truetype'),
+        /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+        url('../fonts/iconfont.svg?t=1595491783092#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e64f";
+}
+
+.icon-cart:before {
+    content: "\e627";
+}
+
+.icon-dianpu:before {
+    content: "\e668";
+}
+
+.icon-wode:before {
+    content: "\e61a";
+}
+
+.icon-category_find_icon:before {
+    content: "\e6a8";
+}
+
+.icon-shoucang:before {
+    content: "\e609";
+}
+
+.icon-kefu:before {
+    content: "\e622";
+}
