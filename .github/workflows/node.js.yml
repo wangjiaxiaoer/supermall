@@ -35,6 +35,5 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.YUN }}
         REMOTE_HOST: "148.70.32.97"
         REMOTE_USER: "root"
-        REMOTE_PORT: "80"
         SOURCE: "dist/"
         TARGET: "/www/wwwroot/supermall/"
