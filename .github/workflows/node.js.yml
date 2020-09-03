@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,15 +32,9 @@ jobs:
       # uses: easingthemes/ssh-deploy@54f2361d27c4ab86ea0a2560836444d123e63cd8
       uses: easingthemes/ssh-deploy@v2.1.0
       with:
-        # Private Key
-        SSH_PRIVATE_KEY: ${{ secrets.YUN}}
-        # Remote host
+        SSH_PRIVATE_KEY: ${{ secrets.YUN }}
         REMOTE_HOST: "148.70.32.97"
-        # Remote user
         REMOTE_USER: "root"
-        # Remote port
         REMOTE_PORT: "22"
-        # Source directory
         SOURCE: "dist/"
-        # Target directory
         TARGET: "/www/wwwroot/supermall/"
